@@ -1,0 +1,23 @@
+{
+  "name": "face-id-davomat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "React + Node.js Face ID davomat platformasi",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev --workspace backend\" \"npm run dev --workspace frontend\"",
+    "build": "npm run build --workspace frontend",
+    "start": "npm run start --workspace backend",
+    "prepare:models": "node scripts/copy-models.js",
+    "postinstall": "npm run prepare:models"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
